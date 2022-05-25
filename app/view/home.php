@@ -1,19 +1,28 @@
 <?php
 
-$ch = curl_init();
-$content = file_get_contents("https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias");
+$limit = 0;
 
+$content = file_get_contents("https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=".$limit);
 
 $dom = new domDocument();
 @$dom->loadHTML($content);
 
-$core = $dom->getElementById('content-core');
-$article = $core->getElementsByTagName('article');
+$xpath  = new DOMXPath($dom);
 
-foreach ($article as $key => $value) {
+$tagsA     = $xpath->query(".//a[@class='summary url']");
+$tagsSpan  = $xpath->query(".//span[@class='summary-view-icon']");
 
-  $div = $value->getElementsByTagName('div');
-  $span  = $div[0]->getElementsByTagName('span');
+foreach ($tagsA as $tagA) {
 
-  print_r( $span[textContent] );
+  $titles[] = $tagA->textContent;
+  $links[]  = $tagA->attributes[1]->value;
+
+}
+
+$i = 0;
+while ( $i < $tagsSpan->length){
+    $dates[] = $tagsSpan[$i]->textContent;
+    $i++;
+    $hours[] = $tagsSpan[$i]->textContent;
+    $i = $i + 2;
 }
