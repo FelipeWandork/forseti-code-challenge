@@ -3,13 +3,13 @@ Esta aplicação puxa os dados do website https://www.gov.br/compras/pt-br/acess
 Apesar da aplicação ter um propósito inicial com data de encerramento, será dada sequência ao desenvolvimento do projeto, a fim de experimentar novas técnicas e ferramentas neste tipo de ação.
 
 
-## MODO DE INSTALAÇÃO
-1) A base de dados (estrutura + dados) está no diretório "documentação" e para instalá-la, importe o arquivo "forseti.sql".
+### MODO DE INSTALAÇÃO
+1) A base de dados (estrutura + dados) está no diretório "documentação" e para instalá-la, importe o arquivo "database.sql".
 
 Usuário do banco: forseti
 Password do banco: RJ-2022@forseti
 
-2) Para inserção dos dados foi utilizado um gerador de ID, evitando números sequenciais como chave primária.
+2) Na inserção dos dados foi utilizado um gerador de ID, evitando números sequenciais como chave primária.
 
 2) Para desenvolvimento foi utilizada plataforma WAMPServer que já disponibilizou a infraestrutura necessária para desenvolvimento e testagens do sistema.
 
