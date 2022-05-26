@@ -1,8 +1,9 @@
-# WEB SCRAPING
+# SISTEMA DE WEB SCRAPING - ReadNews
+Esta aplicação puxa os dados do website https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=0 e os armazena inicialmente em um banco de dados.
+Apesar da aplicação ter um propósito inicial com data de encerramento, será dada sequência ao desenvolvimento do projeto, a fim de experimentar novas técnicas e ferramentas neste tipo de ação.
 
-SISTEMA DE SCRAPING - ReadNews
 
-MODO DE INSTALAÇÃO
+## MODO DE INSTALAÇÃO
 1) A base de dados (estrutura + dados) está no diretório "documentação" e para instalá-la, importe o arquivo "forseti.sql".
 
 Usuário do banco: forseti
