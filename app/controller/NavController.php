@@ -33,7 +33,7 @@ class NavController implements INavController {
       exit;
 
     } else {
-      $route->home();
+      $route->scraping();
     }
 
   } // direciona para a rota requisitada
