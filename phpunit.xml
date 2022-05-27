@@ -5,7 +5,7 @@
          backupStaticAttributes="false"
          <!--bootstrap="/path/to/bootstrap.php"-->
          cacheTokens="false"
-         colors="false"
+         colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
