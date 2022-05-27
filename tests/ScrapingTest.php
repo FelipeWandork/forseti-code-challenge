@@ -8,7 +8,15 @@ class ScrapingTest extends TestCase
 {
     public function testLoadDOM()
     {
-        $scraping = new Scraping();
-        $this->expectNotNull($scraping->loadDOM(150));
+      $content = "https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=0";
+      $scraping = new Scraping;
+      $this->expectNotNull($scraping->loadDOM($content));
+    }
+
+    public function testLoadDOMXPath()
+    {
+      $content  = "https://www.gov.br/compras/pt-br/acesso-a-informacao/noticias?b_start:int=0";
+      $document = new DOMDocument;
+      $this->expectNotNull($scraping->loadDOMXPath($document));
     }
 }

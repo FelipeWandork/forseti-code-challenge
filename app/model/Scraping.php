@@ -2,6 +2,7 @@
 namespace app\model;
 
 use app\model\TagsToDatabase;
+use app\model\ReturnData;
 use \PDO;
 use \PDOStatement;
 use \DOMDocument;
@@ -33,26 +34,22 @@ class Scraping {
     }
 
     $this->toUpdateDatase();
+
+    $return = new ReturnData;
+    $json = $return->selectAll();
+    $return->toPrintJson($json);
   }
 
-
-  public function toFillAll() {
-
-      $tags = new TagsToDatabase;
-      $tags->toSaveNews( array_reverse($this->titles), array_reverse($this->links), array_reverse($this->dates), array_reverse($this->hours) );
-
-  }
 
   public function loadDOM($limit) {
 
     $content = file_get_contents($this->website . $limit);
 
-    $document = new DOMDocument();
+    $document = new DOMDocument;
 
     @$document->loadHTML($content);
 
     $this->dom = $document;
-
   }
 
   public function loadDOMXPath($dom) {
