@@ -29,7 +29,16 @@ Quando executado a primeira vez, se a base de dados estiver vazia o sistema irá
 	- captura as informações desejadas e armazena nas variáveis com nomes das tags de origem (tagsA e tagsSpan);
 	- através do método toReadTags os 4 itens solicitados são organizados em objetos separados (titles, links, dates, hours);
 	- quando estas etapas são concluídas o sistema preenche toda a base de dados, ou apenas atualiza.
-	
+
+`TagsToDatabase.php`: este arquivo faz o papel de ponte entre o arquivo "Scraping.php" e 	o arquivo "Database.php". Ele é responsável por definir os parâmetros que serão enviados para as querys do arquivo "Database.php". Nele podem ser acrescentados quantos métodos forem necessários para solicitar ações na base de dados. Fazendo assim, o arquivo "Database.php" nunca precisará ser alterado.
+
+`TagsToDatabase.php`: ainda não está implementado, mas será o responsável por armazenar os dados em um arquivo .CSV.
+
+`Database.php`: é responsável por executar as querys na base de dados. Ele já está construído para executar qualquer ação padrão de acesso a base de dados (CRUD). Para que ele funcione corretamente, através do arquivo "TagsToDatabase", ou outro que instancie a classe Database, basta definir corretamente as variáveis WHERE, ORDER, LIMIT e FIELDS e enviá-las ao método que deseja executar na classe Database.
+
+`Uuid.php`: gerador de código Universally Unique Identifier (UUID) para ser inserido na base de dados.
+
+
 	
 	
 
