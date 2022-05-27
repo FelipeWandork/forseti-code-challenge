@@ -14,9 +14,7 @@ Apesar da aplicação ter um propósito inicial com data de encerramento, será 
 4. Todo diretório deve ser clonado (copiado) para a raiz do servidor web (e.g. Apache).
 
 ### PRIMEIRA EXECUÇÃO
-
-	Quando executado a primeira vez, se a base de dados estiver vazia o sistema irá buscar todas as notícias (title, link, date, hour) das 5 (cinco) primeiras páginas, gerar um UUID e popular a base de dados.
-	Caso o banco já possua algum conteúdo, o sistema irá verificar qual a notícia mais recente da base, comparar com as notícias do website e só adicionar as notícias novas, desse jeito cada usuário que acessar o sistema estará acionando a atualização dos dados.
+-	Quando executado a primeira vez, se a base de dados estiver vazia o sistema irá buscar todas as notícias (title, link, date, hour) das 5 (cinco) primeiras páginas, gerar um UUID e popular a base de dados. Caso o banco já possua algum conteúdo, o sistema irá verificar qual a notícia mais recente da base, comparar com as notícias do website e só adicionar as notícias novas, desse jeito cada usuário que acessar o sistema estará acionando a atualização dos dados.
 
 ### FUNCIONAMENTO
 
