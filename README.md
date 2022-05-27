@@ -18,11 +18,11 @@ Apesar da aplicação ter um propósito inicial com data de encerramento, será 
 
 ### FUNCIONAMENTO
 
-	- `index.php`: o arquivo index.php é quem aciona o sistema, direcionando qualquer chamada para o controlador NavController.php.
+- `index.php`: o arquivo index.php é quem aciona o sistema, direcionando qualquer chamada para o controlador NavController.php.
 	
-	- `NavController.php`: verifica a origem da chamada e só aceita chamadas vindas do host que está armazenado na constante HOST. Caso o host não coincida com a constante HOST, ou a página não exista, a navegação será direcionada para o arquivo "not_found.html". Caso tudo esteja certo, a navegação será direcionada para a rota "scraping".
+- `NavController.php`: verifica a origem da chamada e só aceita chamadas vindas do host que está armazenado na constante HOST. Caso o host não coincida com a constante HOST, ou a página não exista, a navegação será direcionada para o arquivo "not_found.html". Caso tudo esteja certo, a navegação será direcionada para a rota "scraping".
 	
-	- `Scraping.php`: este é o arquivo principal do sistema.
+- `Scraping.php`: este é o arquivo principal do sistema.
 	O sistema já começa a operar direto no método construtor com as seguintes atividades:
 	- carrega o DOM das 5 páginas;
 	- organiza os dados requeridos em 2 arrays (dom e xpath);
