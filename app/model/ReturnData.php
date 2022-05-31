@@ -12,7 +12,7 @@ class ReturnData {
     $limit  = "";
     $fields = "*";
 
-    $db = new Database("noticias_compras");
+    $db = Database::getInstance();
 
     $statement = $db->select($where, $order, $limit, $fields);
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);

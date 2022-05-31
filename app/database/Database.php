@@ -5,19 +5,18 @@ namespace app\database;
 use \PDO;
 use \PDOException;
 
-class Database {
+final class Database {
 	const HOST 	 = "localhost";
 	const NAME 	 = "forseti";
 	const PORT	 = "3307";
 	const USER	 = "forseti";
 	const PASS	 = "RJ-2022@forseti";
 
-
 	private $table;
 
 	private $connection;
 
-	public function __construct($table = null) {
+	private function __construct($table = null) {
 
 		$this->table = $table;
 
@@ -25,21 +24,37 @@ class Database {
 
 	}
 
-	private function setConnection(){
-		try {
-			$dsn = "mysql:host=".self::HOST.";dbname=".self::NAME.";port=".self::PORT.";charset=utf8mb4";
+	private function __clone() {
 
-			$this->connection = new PDO($dsn, self::USER, self::PASS);
-
-			$this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-		} catch (PDOException $error) {
-
-			//alterar esta mensagem para produção
-			die ("ERROR: ".$error->getMessage());
-
-		}
 	}
+
+	private function __wakeup() {
+
+	}
+
+	private function getInstance(): PDO {
+		if(!isset(self::$instance)) {
+			self::$instance = new PDO("mysql:host=".self::HOST.";dbname=".self::NAME.";port=".self::PORT.";charset=utf8mb4", self::USER, self::PASS")";
+		}
+
+		return self::$instance;
+	}
+
+	// private function setConnection(){
+	// 	try {
+	// 		$dsn = "mysql:host=".self::HOST.";dbname=".self::NAME.";port=".self::PORT.";charset=utf8mb4";
+	//
+	// 		$this->connection = new PDO($dsn, self::USER, self::PASS);
+	//
+	// 		$this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	//
+	// 	} catch (PDOException $error) {
+	//
+	// 		//alterar esta mensagem para produção
+	// 		die ("ERROR: ".$error->getMessage());
+	//
+	// 	}
+	// }
 
 	public function execute($query, $params = []){
 
